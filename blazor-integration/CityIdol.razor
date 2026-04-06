@@ -1,0 +1,150 @@
+@* 
+  CITYIDOL — Blazor WebAssembly компонент
+  Встраивает React SPA через iframe с поддержкой сообщений между приложениями.
+  
+  Подключение:
+  1. Скопируйте этот файл в Pages/ или Components/ вашего Blazor проекта
+  2. Добавьте CityIdolJsInterop.cs и wwwroot/cityidol-interop.js (файлы ниже)
+  3. Задайте правильный SiteUrl (URL вашего задеплоенного React сайта)
+  4. Используйте компонент: <CityIdol Section="prices" />
+*@
+
+@page "/cityidol"
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+<div class="cityidol-wrapper @WrapperClass" style="@WrapperStyle">
+    @if (IsLoading)
+    {
+        <div class="cityidol-loader">
+            <div class="cityidol-spinner"></div>
+            <p>Загружаем студию...</p>
+        </div>
+    }
+
+    <iframe
+        id="cityidol-frame"
+        src="@FrameSrc"
+        title="CITYIDOL — Студия корейских танцев"
+        frameborder="0"
+        allow="payment"
+        style="width:100%; height:@Height; border:none; display:@(IsLoading ? "none" : "block"); border-radius: @BorderRadius;"
+        @onload="OnFrameLoaded">
+    </iframe>
+</div>
+
+@code {
+    /// <summary>URL задеплоенного React-сайта CITYIDOL</summary>
+    [Parameter] public string SiteUrl { get; set; } = "https://ВАШ-ДОМЕН.poehali.dev";
+
+    /// <summary>Секция для скролла при открытии: hero / about / services / trainers / schedule / prices / reviews / faq / contacts</summary>
+    [Parameter] public string Section { get; set; } = "";
+
+    /// <summary>Высота iframe</summary>
+    [Parameter] public string Height { get; set; } = "100vh";
+
+    /// <summary>Дополнительный CSS класс обёртки</summary>
+    [Parameter] public string WrapperClass { get; set; } = "";
+
+    /// <summary>Скругление углов iframe</summary>
+    [Parameter] public string BorderRadius { get; set; } = "0px";
+
+    /// <summary>Вызывается при успешной оплате через СБП (пользователь нажал «Я оплатил»)</summary>
+    [Parameter] public EventCallback<PaymentEventArgs> OnPaymentConfirmed { get; set; }
+
+    private bool IsLoading { get; set; } = true;
+    private DotNetObjectReference<CityIdol>? _dotNetRef;
+    private IJSObjectReference? _jsModule;
+
+    private string FrameSrc => string.IsNullOrEmpty(Section)
+        ? SiteUrl
+        : $"{SiteUrl.TrimEnd('/')}/#{ Section}";
+
+    private string WrapperStyle => $"position: relative; width: 100%; height: {Height}; overflow: hidden;";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _dotNetRef = DotNetObjectReference.Create(this);
+            _jsModule = await JS.InvokeAsync<IJSObjectReference>(
+                "import", "./cityidol-interop.js");
+            await _jsModule.InvokeVoidAsync("initCityIdolBridge", _dotNetRef, "cityidol-frame");
+        }
+    }
+
+    private void OnFrameLoaded()
+    {
+        IsLoading = false;
+        StateHasChanged();
+    }
+
+    /// <summary>Вызывается из JS когда пользователь подтверждает оплату СБП в React-приложении</summary>
+    [JSInvokable]
+    public async Task HandlePaymentConfirmed(string planName, int amount)
+    {
+        await OnPaymentConfirmed.InvokeAsync(new PaymentEventArgs
+        {
+            PlanName = planName,
+            Amount = amount,
+            ConfirmedAt = DateTime.UtcNow
+        });
+    }
+
+    /// <summary>Программно скроллит сайт к нужной секции</summary>
+    public async Task ScrollToSection(string section)
+    {
+        if (_jsModule != null)
+            await _jsModule.InvokeVoidAsync("scrollCityIdolTo", "cityidol-frame", section);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_jsModule != null)
+            await _jsModule.InvokeVoidAsync("destroyCityIdolBridge");
+        _dotNetRef?.Dispose();
+        if (_jsModule != null)
+            await _jsModule.DisposeAsync();
+    }
+
+    public class PaymentEventArgs
+    {
+        public string PlanName { get; set; } = "";
+        public int Amount { get; set; }
+        public DateTime ConfirmedAt { get; set; }
+    }
+}
+
+<style>
+    .cityidol-wrapper {
+        font-family: 'Golos Text', sans-serif;
+    }
+
+    .cityidol-loader {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #fdf8f8;
+        z-index: 10;
+        gap: 12px;
+        color: #8c5e6a;
+        font-size: 14px;
+    }
+
+    .cityidol-spinner {
+        width: 36px;
+        height: 36px;
+        border: 3px solid #f3d5dc;
+        border-top-color: #b0607a;
+        border-radius: 50%;
+        animation: cityidol-spin 0.8s linear infinite;
+    }
+
+    @@keyframes cityidol-spin {
+        to { transform: rotate(360deg); }
+    }
+</style>

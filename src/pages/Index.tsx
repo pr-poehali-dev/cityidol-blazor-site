@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/4a0b8780-34eb-4391-867b-ead32523fd90/files/3c48e9e7-9b8c-415e-91e5-b35534cf10ed.jpg";
-const TRAINER_IMG = "https://cdn.poehali.dev/projects/4a0b8780-34eb-4391-867b-ead32523fd90/files/c172725e-2e57-4fe2-a047-bb504fe83ff1.jpg";
-const GROUP_IMG = "https://cdn.poehali.dev/projects/4a0b8780-34eb-4391-867b-ead32523fd90/files/5134afbe-76ba-4ecd-a986-5eb4d72cc5fb.jpg";
+const HERO_IMG = "https://cdn.poehali.dev/projects/4a0b8780-34eb-4391-867b-ead32523fd90/files/c5dd9cc8-8fb2-45da-9bf6-115cc5423b93.jpg";
+const TRAINER_IMG = "https://cdn.poehali.dev/projects/4a0b8780-34eb-4391-867b-ead32523fd90/files/4c0f7acf-74c9-422b-8837-83eb675a2e7c.jpg";
+const GROUP_IMG = "https://cdn.poehali.dev/projects/4a0b8780-34eb-4391-867b-ead32523fd90/files/d1e94870-fee6-4836-9ebd-cc8b9a06608f.jpg";
+const TRAINER_MALE_IMG = "https://cdn.poehali.dev/projects/4a0b8780-34eb-4391-867b-ead32523fd90/files/85a017ed-f352-4d59-8aec-5c1f88ea6a9a.jpg";
 
 const DAYS = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 const COURSE_TYPES = ["Все", "K-pop Cover", "Girl Style", "Boy Style", "Поинтхил", "Детский K-pop"];
@@ -68,7 +69,7 @@ const TRAINERS = [
     name: "Артём Волков",
     role: "Boy Style / K-pop Cover",
     exp: "7 лет опыта",
-    img: HERO_IMG,
+    img: TRAINER_MALE_IMG,
     color: "bg-orange-50",
   },
 ];
@@ -593,7 +594,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               {[
-                { icon: "MapPin", title: "Адрес", value: "ул. Тверская, 18, Москва" },
+                { icon: "MapPin", title: "Адрес", value: "г. Казань, Деревня Универсиады, 22" },
                 { icon: "Phone", title: "Телефон", value: "+7 (999) 123-45-67" },
                 { icon: "Mail", title: "Email", value: "hello@cityidol.ru" },
                 { icon: "Clock", title: "Режим работы", value: "Пн–Пт: 8:00–22:00\nСб–Вс: 9:00–20:00" },
@@ -624,11 +625,16 @@ export default function Index() {
                 </button>
               </div>
             </div>
-            <div className="bg-muted/40 rounded-3xl h-80 flex items-center justify-center border border-border text-muted-foreground text-sm">
-              <div className="text-center">
-                <Icon name="MapPin" size={32} className="mx-auto mb-2 opacity-30" />
-                <p>Карта появится здесь</p>
-              </div>
+            <div className="rounded-3xl overflow-hidden border border-border shadow-sm" style={{ height: "360px" }}>
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?ll=49.129315%2C55.808695&z=16&pt=49.129315,55.808695,pm2rdm&text=%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C%2C%20%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D0%BD%D1%8F%20%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B0%D0%B4%D1%8B%2C%2022"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="Карта CITYIDOL"
+                allowFullScreen
+                style={{ border: 0 }}
+              />
             </div>
           </div>
         </div>
