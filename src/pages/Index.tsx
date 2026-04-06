@@ -6,80 +6,80 @@ const TRAINER_IMG = "https://cdn.poehali.dev/projects/4a0b8780-34eb-4391-867b-ea
 const GROUP_IMG = "https://cdn.poehali.dev/projects/4a0b8780-34eb-4391-867b-ead32523fd90/files/5134afbe-76ba-4ecd-a986-5eb4d72cc5fb.jpg";
 
 const DAYS = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
-const COURSE_TYPES = ["Все", "Балет", "Contemporary", "Hip-hop", "Растяжка", "Детский"];
+const COURSE_TYPES = ["Все", "K-pop Cover", "Girl Style", "Boy Style", "Поинтхил", "Детский K-pop"];
 
 const SCHEDULE_DATA: Record<string, { time: string; course: string; trainer: string; spots: number; color: string }[]> = {
   "Пн": [
-    { time: "09:00", course: "Балет", trainer: "Анна М.", spots: 5, color: "bg-pink-100 text-pink-800" },
-    { time: "11:00", course: "Растяжка", trainer: "Ольга С.", spots: 8, color: "bg-green-100 text-green-800" },
-    { time: "18:00", course: "Contemporary", trainer: "Мария К.", spots: 3, color: "bg-purple-100 text-purple-800" },
-    { time: "20:00", course: "Hip-hop", trainer: "Дмитрий В.", spots: 6, color: "bg-orange-100 text-orange-800" },
+    { time: "10:00", course: "K-pop Cover", trainer: "Мина Ли", spots: 5, color: "bg-pink-100 text-pink-800" },
+    { time: "12:00", course: "Поинтхил", trainer: "Ольга С.", spots: 8, color: "bg-green-100 text-green-800" },
+    { time: "18:00", course: "Girl Style", trainer: "Дана К.", spots: 3, color: "bg-purple-100 text-purple-800" },
+    { time: "20:00", course: "Boy Style", trainer: "Артём В.", spots: 6, color: "bg-orange-100 text-orange-800" },
   ],
   "Вт": [
-    { time: "10:00", course: "Детский", trainer: "Светлана П.", spots: 4, color: "bg-yellow-100 text-yellow-800" },
-    { time: "13:00", course: "Балет", trainer: "Анна М.", spots: 7, color: "bg-pink-100 text-pink-800" },
-    { time: "19:00", course: "Hip-hop", trainer: "Дмитрий В.", spots: 2, color: "bg-orange-100 text-orange-800" },
+    { time: "10:00", course: "Детский K-pop", trainer: "Светлана П.", spots: 4, color: "bg-yellow-100 text-yellow-800" },
+    { time: "14:00", course: "K-pop Cover", trainer: "Мина Ли", spots: 7, color: "bg-pink-100 text-pink-800" },
+    { time: "19:00", course: "Boy Style", trainer: "Артём В.", spots: 2, color: "bg-orange-100 text-orange-800" },
   ],
   "Ср": [
-    { time: "09:00", course: "Растяжка", trainer: "Ольга С.", spots: 9, color: "bg-green-100 text-green-800" },
-    { time: "11:00", course: "Contemporary", trainer: "Мария К.", spots: 5, color: "bg-purple-100 text-purple-800" },
-    { time: "17:00", course: "Детский", trainer: "Светлана П.", spots: 6, color: "bg-yellow-100 text-yellow-800" },
-    { time: "19:30", course: "Балет", trainer: "Анна М.", spots: 4, color: "bg-pink-100 text-pink-800" },
+    { time: "10:00", course: "Поинтхил", trainer: "Ольга С.", spots: 9, color: "bg-green-100 text-green-800" },
+    { time: "13:00", course: "Girl Style", trainer: "Дана К.", spots: 5, color: "bg-purple-100 text-purple-800" },
+    { time: "17:00", course: "Детский K-pop", trainer: "Светлана П.", spots: 6, color: "bg-yellow-100 text-yellow-800" },
+    { time: "19:30", course: "K-pop Cover", trainer: "Мина Ли", spots: 4, color: "bg-pink-100 text-pink-800" },
   ],
   "Чт": [
-    { time: "10:00", course: "Hip-hop", trainer: "Дмитрий В.", spots: 8, color: "bg-orange-100 text-orange-800" },
-    { time: "18:00", course: "Растяжка", trainer: "Ольга С.", spots: 7, color: "bg-green-100 text-green-800" },
-    { time: "20:00", course: "Contemporary", trainer: "Мария К.", spots: 3, color: "bg-purple-100 text-purple-800" },
+    { time: "11:00", course: "Boy Style", trainer: "Артём В.", spots: 8, color: "bg-orange-100 text-orange-800" },
+    { time: "18:00", course: "Поинтхил", trainer: "Ольга С.", spots: 7, color: "bg-green-100 text-green-800" },
+    { time: "20:00", course: "Girl Style", trainer: "Дана К.", spots: 3, color: "bg-purple-100 text-purple-800" },
   ],
   "Пт": [
-    { time: "09:00", course: "Балет", trainer: "Анна М.", spots: 6, color: "bg-pink-100 text-pink-800" },
-    { time: "12:00", course: "Детский", trainer: "Светлана П.", spots: 5, color: "bg-yellow-100 text-yellow-800" },
-    { time: "18:00", course: "Hip-hop", trainer: "Дмитрий В.", spots: 4, color: "bg-orange-100 text-orange-800" },
-    { time: "20:00", course: "Растяжка", trainer: "Ольга С.", spots: 9, color: "bg-green-100 text-green-800" },
+    { time: "10:00", course: "K-pop Cover", trainer: "Мина Ли", spots: 6, color: "bg-pink-100 text-pink-800" },
+    { time: "12:00", course: "Детский K-pop", trainer: "Светлана П.", spots: 5, color: "bg-yellow-100 text-yellow-800" },
+    { time: "18:00", course: "Boy Style", trainer: "Артём В.", spots: 4, color: "bg-orange-100 text-orange-800" },
+    { time: "20:00", course: "Поинтхил", trainer: "Ольга С.", spots: 9, color: "bg-green-100 text-green-800" },
   ],
   "Сб": [
-    { time: "10:00", course: "Балет", trainer: "Анна М.", spots: 8, color: "bg-pink-100 text-pink-800" },
-    { time: "12:00", course: "Contemporary", trainer: "Мария К.", spots: 6, color: "bg-purple-100 text-purple-800" },
-    { time: "14:00", course: "Hip-hop", trainer: "Дмитрий В.", spots: 5, color: "bg-orange-100 text-orange-800" },
-    { time: "16:00", course: "Детский", trainer: "Светлана П.", spots: 7, color: "bg-yellow-100 text-yellow-800" },
+    { time: "10:00", course: "K-pop Cover", trainer: "Мина Ли", spots: 8, color: "bg-pink-100 text-pink-800" },
+    { time: "12:00", course: "Girl Style", trainer: "Дана К.", spots: 6, color: "bg-purple-100 text-purple-800" },
+    { time: "14:00", course: "Boy Style", trainer: "Артём В.", spots: 5, color: "bg-orange-100 text-orange-800" },
+    { time: "16:00", course: "Детский K-pop", trainer: "Светлана П.", spots: 7, color: "bg-yellow-100 text-yellow-800" },
   ],
   "Вс": [
-    { time: "11:00", course: "Растяжка", trainer: "Ольга С.", spots: 10, color: "bg-green-100 text-green-800" },
-    { time: "13:00", course: "Contemporary", trainer: "Мария К.", spots: 4, color: "bg-purple-100 text-purple-800" },
+    { time: "11:00", course: "Поинтхил", trainer: "Ольга С.", spots: 10, color: "bg-green-100 text-green-800" },
+    { time: "13:00", course: "Girl Style", trainer: "Дана К.", spots: 4, color: "bg-purple-100 text-purple-800" },
   ],
 };
 
 const TRAINERS = [
   {
-    name: "Анна Морозова",
-    role: "Балет / Классический танец",
-    exp: "12 лет опыта",
+    name: "Мина Ли",
+    role: "K-pop Cover / Girl Style",
+    exp: "8 лет опыта · Сеул",
     img: TRAINER_IMG,
     color: "bg-pink-50",
   },
   {
-    name: "Мария Краснова",
-    role: "Contemporary",
-    exp: "8 лет опыта",
+    name: "Дана Краснова",
+    role: "Girl Style / Поинтхил",
+    exp: "6 лет опыта",
     img: GROUP_IMG,
     color: "bg-purple-50",
   },
   {
-    name: "Дмитрий Волков",
-    role: "Hip-hop / Street",
-    exp: "10 лет опыта",
+    name: "Артём Волков",
+    role: "Boy Style / K-pop Cover",
+    exp: "7 лет опыта",
     img: HERO_IMG,
     color: "bg-orange-50",
   },
 ];
 
 const SERVICES = [
-  { icon: "Sparkles", title: "Балет", desc: "Классическая техника, постановка тела и грация для любого возраста", color: "bg-pink-50 border-pink-200" },
-  { icon: "Zap", title: "Hip-hop", desc: "Энергичные движения, ритм и самовыражение в современной культуре", color: "bg-orange-50 border-orange-200" },
-  { icon: "Wind", title: "Contemporary", desc: "Современный танец, слияние техник и свободное движение", color: "bg-purple-50 border-purple-200" },
-  { icon: "Leaf", title: "Растяжка", desc: "Гибкость, пластика и расслабление для тела и разума", color: "bg-green-50 border-green-200" },
-  { icon: "Star", title: "Детский", desc: "Развитие координации, творчества и любви к движению с 3 лет", color: "bg-yellow-50 border-yellow-200" },
-  { icon: "Users", title: "Групповые интенсивы", desc: "Трёхдневные курсы с погружением в стиль и технику", color: "bg-blue-50 border-blue-200" },
+  { icon: "Sparkles", title: "K-pop Cover", desc: "Разучиваем хореографию популярных K-pop групп: BTS, BLACKPINK, aespa и других", color: "bg-pink-50 border-pink-200" },
+  { icon: "Star", title: "Girl Style", desc: "Женственная K-pop хореография: плавные движения, женский шарм и стиль айдолов", color: "bg-purple-50 border-purple-200" },
+  { icon: "Zap", title: "Boy Style", desc: "Мощная мужская хореография K-pop: чёткость, энергия и харизма", color: "bg-orange-50 border-orange-200" },
+  { icon: "Leaf", title: "Поинтхил", desc: "Танец на каблуках в K-pop стиле — сексуальность, баланс и уверенность", color: "bg-green-50 border-green-200" },
+  { icon: "Heart", title: "Детский K-pop", desc: "K-pop хореография для детей от 5 лет: весело, динамично и на любимую музыку", color: "bg-yellow-50 border-yellow-200" },
+  { icon: "Users", title: "Cover-интенсивы", desc: "Трёхдневные интенсивы: выучим полный чистовой кавер на выступление", color: "bg-blue-50 border-blue-200" },
 ];
 
 const PRICES = [
@@ -87,9 +87,10 @@ const PRICES = [
     name: "Пробный",
     price: "500 ₽",
     period: "разово",
-    features: ["1 занятие на выбор", "Любое время", "Консультация тренера"],
+    features: ["1 занятие на выбор", "Любое направление", "Консультация тренера"],
     highlight: false,
     color: "border-stone-200",
+    amount: 500,
   },
   {
     name: "Базовый",
@@ -98,6 +99,7 @@ const PRICES = [
     features: ["8 занятий в месяц", "1 направление", "Приоритетная запись"],
     highlight: true,
     color: "border-pink-300",
+    amount: 3900,
   },
   {
     name: "Безлимит",
@@ -106,29 +108,36 @@ const PRICES = [
     features: ["Все занятия без лимита", "Все направления", "Персональный трекинг прогресса"],
     highlight: false,
     color: "border-purple-200",
+    amount: 6900,
   },
 ];
 
 const REVIEWS = [
-  { name: "Алина Петрова", text: "Занимаюсь балетом уже полгода. Студия стала для меня местом силы — красиво, уютно и очень профессиональные тренеры.", rating: 5, course: "Балет" },
-  { name: "Мария Соколова", text: "Привела дочку на детский курс в 4 года. Она в восторге! Светлана умеет найти подход к каждому малышу.", rating: 5, course: "Детский" },
-  { name: "Екатерина Ли", text: "Contemporary — это то, что мне нужно. Свобода движений, интересная хореография и тёплая атмосфера в группе.", rating: 5, course: "Contemporary" },
-  { name: "Анастасия Фёдорова", text: "Хожу на растяжку три раза в неделю. За 2 месяца стала намного гибче и просто отдыхаю душой.", rating: 5, course: "Растяжка" },
+  { name: "Алина Петрова", text: "Занимаюсь K-pop Cover уже полгода. Выучила хореографию BLACKPINK — подруги в шоке! Тренеры невероятно терпеливые.", rating: 5, course: "K-pop Cover" },
+  { name: "Мария Соколова", text: "Привела дочку на детский K-pop в 6 лет. Она без ума от занятий — учит движения BTS и New Jeans!", rating: 5, course: "Детский K-pop" },
+  { name: "Екатерина Ли", text: "Girl Style — это магия. Чувствую себя настоящим айдолом. Дана — лучший тренер, объясняет каждую деталь.", rating: 5, course: "Girl Style" },
+  { name: "Анастасия Фёдорова", text: "Поинтхил полностью изменил мою осанку и уверенность. Хожу три раза в неделю и не могу остановиться.", rating: 5, course: "Поинтхил" },
 ];
 
 const FAQS = [
-  { q: "С какого возраста можно начинать?", a: "Детские группы принимают с 3 лет. Взрослые группы — без ограничений по возрасту, начинать никогда не поздно." },
-  { q: "Нужна ли физическая подготовка?", a: "Нет. Все занятия разработаны для разного уровня подготовки. Тренер адаптирует программу под вас." },
-  { q: "Что взять на первое занятие?", a: "Удобную спортивную одежду, воду и хорошее настроение. Специальная обувь рекомендуется для балета." },
-  { q: "Можно ли посетить пробное занятие?", a: "Да! Пробное занятие стоит 500 ₽. Выберите любое направление и удобное время в расписании." },
-  { q: "Есть ли абонементы на заморозку?", a: "Абонемент можно заморозить на срок до 2 недель при наличии уважительной причины." },
+  { q: "Нужен ли опыт танцев?", a: "Нет. Мы принимаем всех с нуля. В группах есть начинающий и продвинутый уровни." },
+  { q: "С какого возраста можно записаться?", a: "Детские группы — с 5 лет. Взрослые — без ограничений по возрасту, K-pop любят все!" },
+  { q: "Какую музыку разучиваем?", a: "BTS, BLACKPINK, aespa, NewJeans, IVE, Stray Kids, TWICE и другие топовые артисты. Репертуар обновляется каждый сезон." },
+  { q: "Можно ли посетить пробное занятие?", a: "Да! Пробное занятие стоит 500 ₽. Оплатить можно онлайн через СБП или на месте." },
+  { q: "Проводятся ли концерты и выступления?", a: "Да, дважды в год устраиваем отчётные показы. Участие добровольное, но все наши ученики в итоге выходят на сцену!" },
 ];
+
+// Номер телефона для СБП (замените на реальный)
+const SBP_PHONE = "+79991234567";
+const SBP_BANK = "Сбербанк";
 
 export default function Index() {
   const [activeDay, setActiveDay] = useState("Пн");
   const [activeCourse, setActiveCourse] = useState("Все");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [sbpModal, setSbpModal] = useState<{ name: string; amount: number } | null>(null);
+  const [sbpStep, setSbpStep] = useState<"info" | "confirm">("info");
 
   const filteredSchedule = (SCHEDULE_DATA[activeDay] || []).filter(
     (item) => activeCourse === "Все" || item.course === activeCourse
@@ -145,8 +154,94 @@ export default function Index() {
     { label: "Контакты", href: "#contacts" },
   ];
 
+  const openSbp = (plan: { name: string; amount: number }) => {
+    setSbpModal(plan);
+    setSbpStep("info");
+  };
+
+  const closeSbp = () => {
+    setSbpModal(null);
+    setSbpStep("info");
+  };
+
   return (
     <div className="min-h-screen bg-background font-golos">
+      {/* SBP MODAL */}
+      {sbpModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={closeSbp} />
+          <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-sm p-8 animate-fade-in-up">
+            <button onClick={closeSbp} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
+              <Icon name="X" size={20} />
+            </button>
+
+            {sbpStep === "info" ? (
+              <>
+                <div className="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center mb-5">
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <h3 className="font-cormorant text-2xl font-medium text-foreground mb-1">Оплата через СБП</h3>
+                <p className="text-muted-foreground text-sm mb-6">Быстрый перевод по номеру телефона без комиссии</p>
+
+                <div className="bg-muted/50 rounded-2xl p-4 space-y-3 mb-6">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Тариф</span>
+                    <span className="font-medium text-foreground">{sbpModal.name}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Сумма</span>
+                    <span className="font-semibold text-foreground text-lg font-cormorant">{sbpModal.amount.toLocaleString()} ₽</span>
+                  </div>
+                  <div className="border-t border-border pt-3 flex justify-between text-sm">
+                    <span className="text-muted-foreground">Номер телефона</span>
+                    <span className="font-medium text-foreground">{SBP_PHONE}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Банк получателя</span>
+                    <span className="font-medium text-foreground">{SBP_BANK}</span>
+                  </div>
+                </div>
+
+                <ol className="text-sm text-muted-foreground space-y-2 mb-6">
+                  <li className="flex gap-2"><span className="w-5 h-5 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center text-xs flex-shrink-0">1</span>Откройте приложение вашего банка</li>
+                  <li className="flex gap-2"><span className="w-5 h-5 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center text-xs flex-shrink-0">2</span>Выберите «Перевод по номеру телефона» (СБП)</li>
+                  <li className="flex gap-2"><span className="w-5 h-5 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center text-xs flex-shrink-0">3</span>Введите номер и сумму {sbpModal.amount.toLocaleString()} ₽</li>
+                  <li className="flex gap-2"><span className="w-5 h-5 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center text-xs flex-shrink-0">4</span>В комментарии укажите «CITYIDOL + {sbpModal.name}»</li>
+                </ol>
+
+                <button
+                  onClick={() => setSbpStep("confirm")}
+                  className="w-full bg-primary text-primary-foreground py-3 rounded-2xl font-medium hover:opacity-90 transition-opacity"
+                >
+                  Я оплатил(а)
+                </button>
+              </>
+            ) : (
+              <>
+                <div className="text-center py-4">
+                  <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                    <Icon name="Check" size={28} className="text-green-600" />
+                  </div>
+                  <h3 className="font-cormorant text-2xl font-medium text-foreground mb-2">Спасибо за оплату!</h3>
+                  <p className="text-muted-foreground text-sm mb-6">
+                    Мы проверим платёж и свяжемся с вами в течение 30 минут для подтверждения записи.
+                  </p>
+                  <p className="text-xs text-muted-foreground bg-muted/50 rounded-xl p-3">
+                    Если возникнут вопросы — напишите нам в WhatsApp или позвоните по номеру {SBP_PHONE}
+                  </p>
+                  <button
+                    onClick={closeSbp}
+                    className="mt-6 w-full bg-primary text-primary-foreground py-3 rounded-2xl font-medium hover:opacity-90 transition-opacity"
+                  >
+                    Готово
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -190,15 +285,15 @@ export default function Index() {
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
           <div className="max-w-xl animate-fade-in-up">
             <span className="inline-block bg-pink-100 text-pink-700 text-xs font-medium px-3 py-1 rounded-full mb-6">
-              Студия танца и движения
+              Студия корейских танцев · каверданс
             </span>
             <h1 className="font-cormorant text-6xl md:text-8xl font-light leading-none text-foreground mb-6">
-              Найди себя
+              Стань своим
               <br />
-              <em className="text-primary">в движении</em>
+              <em className="text-primary">K-pop айдолом</em>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 font-light">
-              CITYIDOL — место, где тело обретает свободу, а душа — гармонию. Балет, contemporary, hip-hop и растяжка для любого уровня.
+              CITYIDOL — студия корейских танцев и кавердэнса. Учим хореографию BTS, BLACKPINK, aespa и других топовых K-pop групп с нуля.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="#schedule" className="bg-primary text-primary-foreground px-7 py-3 rounded-full font-medium hover:opacity-90 transition-opacity">
@@ -229,19 +324,19 @@ export default function Index() {
             <div>
               <span className="text-xs text-muted-foreground tracking-widest uppercase">О нас</span>
               <h2 className="font-cormorant text-5xl md:text-6xl font-light mt-3 mb-6 leading-tight">
-                Студия, где<br /><em className="text-primary">рождается</em> стиль
+                Студия, где<br /><em className="text-primary">рождаются</em> айдолы
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                Мы открылись в 2018 году с простой идеей: сделать профессиональный танец доступным каждому. Три оборудованных зала, пять направлений и команда тренеров с международным опытом.
+                CITYIDOL — первая в городе студия корейских танцев с профессиональными тренерами, прошедшими обучение в Сеуле. Мы специализируемся на K-pop кавердэнсе: разучиваем точную хореографию, работаем над стилем и энергетикой.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                В CITYIDOL вы найдёте не просто занятия — здесь формируется сообщество людей, которые ценят движение, красоту и саморазвитие.
+                Каждый сезон обновляем репертуар, проводим отчётные концерты и cover-интенсивы. У нас танцуют дети, студенты и взрослые — возраст не важен, важна любовь к K-pop.
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
                   { icon: "MapPin", label: "В центре города" },
                   { icon: "Clock", label: "7 дней в неделю" },
-                  { icon: "Heart", label: "Тёплая атмосфера" },
+                  { icon: "Heart", label: "K-pop атмосфера" },
                 ].map((item) => (
                   <div key={item.label} className="text-center p-4 bg-white rounded-2xl">
                     <Icon name={item.icon} size={20} className="text-primary mx-auto mb-2" />
@@ -258,7 +353,7 @@ export default function Index() {
                     <Icon name="Award" size={18} className="text-pink-600" />
                   </div>
                   <div>
-                    <div className="font-medium text-sm text-foreground">Лучшая студия 2024</div>
+                    <div className="font-medium text-sm text-foreground">Лучшая K-pop студия 2024</div>
                     <div className="text-xs text-muted-foreground">по версии City Awards</div>
                   </div>
                 </div>
@@ -273,7 +368,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-xs text-muted-foreground tracking-widest uppercase">Направления</span>
-            <h2 className="font-cormorant text-5xl font-light mt-3">Наши услуги</h2>
+            <h2 className="font-cormorant text-5xl font-light mt-3">Наши курсы</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s) => (
@@ -382,9 +477,13 @@ export default function Index() {
       {/* PRICES */}
       <section id="prices" className="py-24 px-6 bg-cream">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-6">
             <span className="text-xs text-muted-foreground tracking-widest uppercase">Тарифы</span>
             <h2 className="font-cormorant text-5xl font-light mt-3">Цены</h2>
+          </div>
+          <div className="flex items-center justify-center gap-2 mb-10">
+            <span className="text-2xl">⚡</span>
+            <span className="text-sm text-muted-foreground">Оплата через <strong className="text-foreground">СБП</strong> — мгновенно, без комиссии</span>
           </div>
           <div className="grid sm:grid-cols-3 gap-6">
             {PRICES.map((p) => (
@@ -411,13 +510,14 @@ export default function Index() {
                   ))}
                 </ul>
                 <button
-                  className={`w-full py-3 rounded-2xl text-sm font-medium transition-all ${
+                  onClick={() => openSbp({ name: p.name, amount: p.amount })}
+                  className={`w-full py-3 rounded-2xl text-sm font-medium transition-all flex items-center justify-center gap-2 ${
                     p.highlight
                       ? "bg-primary text-primary-foreground hover:opacity-90"
                       : "border border-border text-foreground hover:bg-muted"
                   }`}
                 >
-                  Выбрать
+                  <span>⚡</span> Оплатить через СБП
                 </button>
               </div>
             ))}
@@ -508,7 +608,7 @@ export default function Index() {
                   </div>
                 </div>
               ))}
-              <div className="pt-4">
+              <div className="pt-4 flex flex-wrap gap-3">
                 <a
                   href="#schedule"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
@@ -516,6 +616,12 @@ export default function Index() {
                   <Icon name="Calendar" size={16} />
                   Записаться онлайн
                 </a>
+                <button
+                  onClick={() => openSbp({ name: "Пробное занятие", amount: 500 })}
+                  className="inline-flex items-center gap-2 border border-border text-foreground px-7 py-3 rounded-full text-sm font-medium hover:bg-muted transition-colors"
+                >
+                  <span>⚡</span> Оплатить СБП
+                </button>
               </div>
             </div>
             <div className="bg-muted/40 rounded-3xl h-80 flex items-center justify-center border border-border text-muted-foreground text-sm">
@@ -533,7 +639,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <div className="font-cormorant text-2xl font-semibold tracking-wide">CITYIDOL</div>
-            <div className="text-white/50 text-xs mt-1">Студия танца и движения</div>
+            <div className="text-white/50 text-xs mt-1">Студия корейских танцев · каверданс</div>
           </div>
           <div className="flex flex-wrap gap-6 text-sm text-white/60">
             {navLinks.slice(0, 4).map((l) => (
